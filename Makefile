@@ -1,5 +1,8 @@
 STATA = stata -b do
 
+results/gravity.log: code/analysis/gravity.do data/derived/analysis-sample.dta
+	mkdir -p $(dir $@)
+	$(STATA) $^ $@
 data/derived/analysis-sample.dta: code/merge.do data/derived/ted-country-pairs.dta data/clean/geodist/dist_cepii.dta data/clean/country-codes/country-codes.dta
 	mkdir -p $(dir $@)
 	$(STATA) $^ $@
