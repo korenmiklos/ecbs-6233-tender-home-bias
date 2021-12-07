@@ -12,6 +12,10 @@ data/raw/geodist/dist_cepii.dta:
 	curl -Lo $@ "http://www.cepii.fr/distance/dist_cepii.dta"
 
 
+data/raw/country-codes/country-codes.csv:
+	mkdir -p $(dir $@)
+	curl -Lo $@ "https://datahub.io/core/country-codes/r/country-codes.csv"
+
 install:
 	mkdir -p data/clean/geodist
 	mkdir -p data/clean/ted
