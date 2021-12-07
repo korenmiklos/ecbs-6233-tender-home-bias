@@ -1,2 +1,3 @@
-data/raw/*/*.csv
-data/raw/*/*.dta
+data/*/*/*.csv
+data/*/*/*.dta
+*.log
