@@ -10,3 +10,9 @@ data/clean/geodist/dist_cepii.dta: code/read/geodist.do data/raw/geodist/dist_ce
 	$(STATA) $^ $@
 data/raw/geodist/dist_cepii.dta: 
 	curl -Lo $@ "http://www.cepii.fr/distance/dist_cepii.dta"
+
+
+install:
+	mkdir -p data/clean/geodist
+	mkdir -p data/clean/ted
+	stata -b ssc install wbopendata
