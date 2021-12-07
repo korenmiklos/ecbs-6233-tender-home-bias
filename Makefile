@@ -1,4 +1,9 @@
 STATA = stata -b do
+
+data/derived/analysis-sample.dta: code/merge.do data/clean/ted/can-2019.dta data/clean/geodist/dist_cepii.dta data/clean/country-codes/country-codes.dta
+	mkdir -p $(dir $@)
+	$(STATA) $^ $@
+
 data/clean/ted/can-2019.dta: code/read/ted.do data/raw/ted/can-2019.csv
 	$(STATA) $^ $@
 data/raw/ted/can-2019.csv: 
