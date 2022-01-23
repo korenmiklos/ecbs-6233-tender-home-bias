@@ -1,8 +1,7 @@
 using DataFrames, DataFramesMeta
 using CSV, StatFiles, FileIO
 
-input_filename = "data/raw/ted/can-2019.csv"
-output_filename = "data/clean/ted/can-2019.csv"
+input_filename, output_filename = ARGS
 
 ted_df = CSV.read(input_filename, DataFrame)
 

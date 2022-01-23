@@ -1,4 +1,5 @@
 STATA = stata -b do
+JULIA = /usr/local/julia --project=.
 
 results/gravity.log: code/analysis/gravity.do data/derived/analysis-sample.dta
 	mkdir -p $(dir $@)
@@ -10,9 +11,9 @@ data/derived/ted-country-pairs.dta: code/aggregate.do data/clean/ted/can-2019.dt
 	mkdir -p $(dir $@)
 	$(STATA) $^ $@
 
-data/clean/ted/can-2019.dta: code/read/ted.do data/raw/ted/can-2019.csv
+data/clean/ted/can-2019.csv: code/read.jl data/raw/ted/can-2019.csv
 	mkdir -p $(dir $@)
-	$(STATA) $^ $@
+	$(JULIA) $^ $@
 data/clean/geodist/dist_cepii.dta: code/read/geodist.do data/raw/geodist/dist_cepii.dta
 	mkdir -p $(dir $@)
 	$(STATA) $^ $@
