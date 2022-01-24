@@ -11,7 +11,7 @@ data/derived/ted-country-pairs.dta: code/aggregate.do data/clean/ted/can-2019.dt
 	mkdir -p $(dir $@)
 	$(STATA) $^ $@
 
-data/clean/ted/can-2019.csv: code/read.jl data/raw/ted/can-2019.csv
+data/clean/ted/can-2019.csv: code/read/ted.jl data/raw/ted/can-2019.csv
 	mkdir -p $(dir $@)
 	$(JULIA) $^ $@
 data/clean/geodist/dist_cepii.dta: code/read/geodist.do data/raw/geodist/dist_cepii.dta
