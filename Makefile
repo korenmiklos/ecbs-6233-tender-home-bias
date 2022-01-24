@@ -1,5 +1,5 @@
 STATA = stata -b do
-JULIA = /usr/local/julia --project=.
+JULIA = julia --project=.
 
 results/gravity.log: code/analysis/gravity.do data/derived/analysis-sample.dta
 	mkdir -p $(dir $@)
